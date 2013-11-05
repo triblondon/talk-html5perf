@@ -15,11 +15,6 @@ module.exports = function(grunt) {
 				' */'
 		},
 
-		// Tests will be added soon
-		qunit: {
-			files: [ 'test/*.html' ]
-		},
-
 		uglify: {
 			options: {
 				banner: '<%= meta.banner %>\n'
@@ -48,7 +43,8 @@ module.exports = function(grunt) {
 					'css/theme/simple.css': 'css/theme/source/simple.scss',
 					'css/theme/sky.css': 'css/theme/source/sky.scss',
 					'css/theme/moon.css': 'css/theme/source/moon.scss',
-					'css/theme/solarized.css': 'css/theme/source/solarized.scss'
+					'css/theme/solarized.css': 'css/theme/source/solarized.scss',
+					'css/theme/ftlabs.css': 'css/theme/source/ftlabs.scss'
 				}
 			}
 		},
@@ -119,7 +115,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-zip' );
 
 	// Default task
-	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify', 'qunit' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify' ] );
 
 	// Theme task
 	grunt.registerTask( 'themes', [ 'sass' ] );
@@ -131,6 +127,6 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
 
 	// Run tests
-	grunt.registerTask( 'test', [ 'jshint', 'qunit' ] );
+	grunt.registerTask( 'test', [ 'jshint' ] );
 
 };
