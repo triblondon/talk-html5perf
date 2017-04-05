@@ -193,10 +193,8 @@ api.send(callback5);
 					<ul>
 						<li>Makes this unnecessary – in theory, but:
 						<ul>
-							<li>Not usable yet</li>
 							<li>Can't optimise cross-origin (third party scripts)</li>
 						</ul>
-						<li>Also see W3C Beacon API for analytics</li>
 						<li>Still use cases for delayed requests:
 						<ul>
 							<li>Offline persistence of queued requests</li>
@@ -219,7 +217,6 @@ api.send(callback5);
 						<h2>Third party scripts</h2>
 						<ul>
 							<li>One of the biggest users of polling timers, especially analytics</li>
-							<li>Often needlessly block the load event</li>
 							<li><a href='http://www.webpagetest.org'>Test your performance</a> before and after</li>
 							<li>Ask the right questions before you add a third party script</li>
 						</ul>
@@ -454,7 +451,11 @@ fastdom.read(function() {
 
 				<section>
 					<img src='content/gpu-postacceleration.jpg' class='stretch'>
-					<aside class='notes'>This doesn't seem to be a hack - provided you do intend to transform an element, setting an initial transform of zero seems like a reasonable hint to the browser. Also note browsers are starting to do this automatically even if you just use the top and left offsets for animation (Eli)</aside>
+				</section>
+
+				<section>
+					<h2>This <a href='https://code.google.com/p/chromium/issues/detail?id=313532'><code>will-change</code></a></h2>
+					<pre><code data-trim>.thing { will-change: transform, opacity }</code></pre>
 				</section>
 
 				<section class='dark-background big-quote' data-background='css/theme/ftlabs_images/blue-green-yellow.jpg'>
@@ -465,16 +466,17 @@ fastdom.read(function() {
 				<section>
 					<h2>A <del>happy</del> family of technologies</h2>
 					<ul>
+						<li>Cookies</li>
+						<li>localStorage (and sessionStorage)</li>
 						<li>WebSQL</li>
 						<li>IndexedDB</li>
-						<li>localStorage (and sessionStorage)</li>
-						<li>Cookies</li>
 						<li>HTML5 Application Cache</li>
-						<li>FileAPI</li>
+						<li>Files API</li>
+						<li>Cache API</li>
 					</ul>
 				</section>
 
-				<section>
+				<!--<section>
 					<div class='row storage-family'>
 						<div>
 							<img src='content/storage-cookies.png' style='width:100%'>
@@ -503,7 +505,7 @@ fastdom.read(function() {
 						</div>
 					</div>
 					<aside class='notes'>Jonas Sicking wrote on Moz hacks, Moz prefers IndexedDB and device APIs for filesystem use cases</aside>
-				</section>
+				</section>-->
 
 				<section>
 					<h2>localStorage vs IndexedDB</h2>
@@ -512,20 +514,13 @@ fastdom.read(function() {
 
 				<section>
 					<h2>HTML5 Application cache</h2>
-					<p class='stat'>Meh.</p>
-					<p class='cite'>If you really want to know more, <a href='http://alistapart.com/article/application-cache-is-a-douchebag'>go read this</a> and <a href='http://bdconf.com/ft'>watch this</a></p>
-				</section>
-
-				<section>
 					<img src='content/tweet-bastard.png'>
+					<p>If you really want to know more, <a href='http://alistapart.com/article/application-cache-is-a-douchebag'>go read this</a> and <a href='http://bdconf.com/ft'>watch this</a></p>
 				</section>
 
 				<section>
-					<h2>It's being replaced!</h2>
-					<p>By <strong>NavigationController</strong>!</p>
-					<p class='fragment'>Or maybe <strong>ResourceController</strong> or <strong>NetworkController</strong>?</p>
-					<p class='fragment'>No, wait.  <strong>EventWorker</strong> it is!</p>
-					<p class='fragment'>Scratch that. <strong>ServiceWorker</strong></p>
+					<h2>AppCache is dead, long live</h2>
+					<p style='font-size: 500%'>ServiceWorker</p>
 				</section>
 
 				<section>
@@ -645,6 +640,7 @@ function decompress_v1(data) {
 							<li><a href='http://github.com/ftlabs/fastclick'>github.com/ftlabs/fastclick</a></li>
 							<li>Removes 300ms delay on touch</li>
 							<li>Programmatic clicks aren't quite the same - we handle it where we can (eg apply focus)</li>
+							<li>Fixed in Chrome 32 (Stable), Firefox 30 (Nightly).  Still an issue in Safari &amp; IE</li>
 						</ul>
 						<p><i class='icon-arrow-down'></i> <a href="#" class="navigate-down">Live demo</a> (ooo err)</p>
 					</section>
@@ -689,7 +685,8 @@ function decompress_v1(data) {
 						<li>Email: <a href='mailto:andrew@labs.ft.com'>andrew@labs.ft.com</a></li>
 						<li>Twitter: <a href='http://twitter.com/@triblondon'>@triblondon</a>, <a href='http://twitter.com/@ftlabs'>@ftlabs</a></li>
 					</ul>
-					<p style='margin-top: 50px'>For jobs with FT Labs, visit <a href='http://labs.ft.com/jobs'>labs.ft.com/jobs</a></p>
+					<p style='margin-top: 50px'>For jobs in Beijing, visit <a href='http://www.ftchinese.com/jobs'>www.ftchinese.com/jobs</a></p>
+					<p>For jobs in London, visit <a href='http://labs.ft.com/jobs'>labs.ft.com/jobs</a></p>
 				</section>
 
 
